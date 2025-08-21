@@ -29,6 +29,16 @@
 		7ADA9E6F2E57E090004992D5 /* CharacterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CharacterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7ADA9E972E57E36A004992D5 /* Exceptions for "Packages" folder in "Character" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Networking,
+			);
+			target = 7ADA9E542E57E08F004992D5 /* Character */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7ADA9E572E57E08F004992D5 /* Character */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -43,6 +53,14 @@
 		7ADA9E722E57E090004992D5 /* CharacterUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CharacterUITests;
+			sourceTree = "<group>";
+		};
+		7ADA9E952E57E332004992D5 /* Packages */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7ADA9E972E57E36A004992D5 /* Exceptions for "Packages" folder in "Character" target */,
+			);
+			path = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -75,6 +93,7 @@
 		7ADA9E4C2E57E08F004992D5 = {
 			isa = PBXGroup;
 			children = (
+				7ADA9E952E57E332004992D5 /* Packages */,
 				7ADA9E572E57E08F004992D5 /* Character */,
 				7ADA9E682E57E090004992D5 /* CharacterTests */,
 				7ADA9E722E57E090004992D5 /* CharacterUITests */,
@@ -109,6 +128,7 @@
 			);
 			fileSystemSynchronizedGroups = (
 				7ADA9E572E57E08F004992D5 /* Character */,
+				7ADA9E952E57E332004992D5 /* Packages */,
 			);
 			name = Character;
 			packageProductDependencies = (
