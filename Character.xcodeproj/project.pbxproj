@@ -44,7 +44,7 @@
 		7ADA9F072E588B80004992D5 /* Exceptions for "Character" folder in "Character" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				Info.plist,
+				Resources/Info.plist,
 			);
 			target = 7ADA9E542E57E08F004992D5 /* Character */;
 		};
@@ -449,7 +449,7 @@
 				DEVELOPMENT_TEAM = 4DKEX8NYQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Character/Info.plist;
+				INFOPLIST_FILE = Character/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -486,7 +486,7 @@
 				DEVELOPMENT_TEAM = 4DKEX8NYQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Character/Info.plist;
+				INFOPLIST_FILE = Character/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
