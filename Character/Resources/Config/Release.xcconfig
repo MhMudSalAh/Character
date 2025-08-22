@@ -1,0 +1,9 @@
+//
+//  Release.xcconfig
+//  Character
+//
+//  Created by MhMuD SalAh on 22/08/2025.
+//
+
+
+base_url = rickandmortyapi.com/api/

@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7ADA9EE22E57F0B0004992D5 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 7ADA9EE12E57F0B0004992D5 /* Networking */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7ADA9E662E57E090004992D5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -37,14 +41,16 @@
 			);
 			target = 7ADA9E542E57E08F004992D5 /* Character */;
 		};
+		7ADA9F072E588B80004992D5 /* Exceptions for "Character" folder in "Character" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7ADA9E542E57E08F004992D5 /* Character */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7ADA9E572E57E08F004992D5 /* Character */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Character;
-			sourceTree = "<group>";
-		};
 		7ADA9E682E57E090004992D5 /* CharacterTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = CharacterTests;
@@ -63,6 +69,14 @@
 			path = Packages;
 			sourceTree = "<group>";
 		};
+		7ADA9ED92E57F097004992D5 /* Character */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7ADA9F072E588B80004992D5 /* Exceptions for "Character" folder in "Character" target */,
+			);
+			path = Character;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ADA9EE22E57F0B0004992D5 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				7ADA9E952E57E332004992D5 /* Packages */,
-				7ADA9E572E57E08F004992D5 /* Character */,
+				7ADA9ED92E57F097004992D5 /* Character */,
 				7ADA9E682E57E090004992D5 /* CharacterTests */,
 				7ADA9E722E57E090004992D5 /* CharacterUITests */,
+				7ADA9EE02E57F0B0004992D5 /* Frameworks */,
 				7ADA9E562E57E08F004992D5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -109,6 +125,13 @@
 				7ADA9E6F2E57E090004992D5 /* CharacterUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7ADA9EE02E57F0B0004992D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,11 +150,12 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				7ADA9E572E57E08F004992D5 /* Character */,
 				7ADA9E952E57E332004992D5 /* Packages */,
+				7ADA9ED92E57F097004992D5 /* Character */,
 			);
 			name = Character;
 			packageProductDependencies = (
+				7ADA9EE12E57F0B0004992D5 /* Networking */,
 			);
 			productName = Character;
 			productReference = 7ADA9E552E57E08F004992D5 /* Character.app */;
@@ -291,6 +315,8 @@
 /* Begin XCBuildConfiguration section */
 		7ADA9E772E57E090004992D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Debug.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -354,6 +380,8 @@
 		};
 		7ADA9E782E57E090004992D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Release.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -410,6 +438,8 @@
 		};
 		7ADA9E7A2E57E090004992D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Debug.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -419,6 +449,7 @@
 				DEVELOPMENT_TEAM = 4DKEX8NYQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Character/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -444,6 +475,8 @@
 		};
 		7ADA9E7B2E57E090004992D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Release.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -453,6 +486,7 @@
 				DEVELOPMENT_TEAM = 4DKEX8NYQS;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Character/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -478,6 +512,8 @@
 		};
 		7ADA9E7D2E57E090004992D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Debug.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -497,6 +533,8 @@
 		};
 		7ADA9E7E2E57E090004992D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Release.xcconfig;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -516,6 +554,8 @@
 		};
 		7ADA9E802E57E090004992D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Debug.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -533,6 +573,8 @@
 		};
 		7ADA9E812E57E090004992D5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = 7ADA9ED92E57F097004992D5 /* Character */;
+			baseConfigurationReferenceRelativePath = Resources/Config/Release.xcconfig;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -588,6 +630,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7ADA9EE12E57F0B0004992D5 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7ADA9E4D2E57E08F004992D5 /* Project object */;
 }
