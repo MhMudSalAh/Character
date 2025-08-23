@@ -6,4 +6,4 @@
 //
 
 
-base_url = rickandmortyapi.com/api/
+base_url = https:/$()/rickandmortyapi.com/api/

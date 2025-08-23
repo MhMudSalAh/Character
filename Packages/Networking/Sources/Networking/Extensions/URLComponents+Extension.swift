@@ -10,11 +10,12 @@ import Foundation
 extension URLComponents {
     
     init(service: ServiceProtocol) {
-        let url = URL(string: service.path.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)!
-        
+        let urlString = (Bundle.main.infoDictionary!["BaseURL"] as! String)
+        let baseUrl = URL(string: urlString)
+        let path = service.path
+        let url = baseUrl!.appendingPathComponent(path)
         
         self.init(url: url, resolvingAgainstBaseURL: false)!
-        
         
         guard let parameters = service.parameters else { return }
         
