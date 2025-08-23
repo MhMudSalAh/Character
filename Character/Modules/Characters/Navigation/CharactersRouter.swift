@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol CharactersCoordinatorInterface {
+protocol CharactersRouter {
     func navigateToCharacterDetails(character: CharacterModel)
 }

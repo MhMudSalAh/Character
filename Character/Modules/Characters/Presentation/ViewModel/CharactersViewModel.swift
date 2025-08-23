@@ -9,13 +9,13 @@ import Foundation
 
 final class CharactersViewModel: ObservableObject {
     private let useCase: CharactersUseCase
-    private let router: CharactersCoordinatorInterface
+    private let router: CharactersRouter
     
     @Published var characters = [CharacterModel]()
     
     init(
         useCase: CharactersUseCase,
-        router: CharactersCoordinatorInterface
+        router: CharactersRouter
     ) {
         self.useCase = useCase
         self.router = router

@@ -16,5 +16,5 @@ struct CharactersView: View {
 }
 
 #Preview {
-    CharactersCoordinator().start(isPreview: true)
+    CharactersCoordinator(path: .constant(NavigationPath())).start(isPreview: true)
 }

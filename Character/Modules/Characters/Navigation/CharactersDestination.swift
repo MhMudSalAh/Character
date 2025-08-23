@@ -7,6 +7,6 @@
 
 import Foundation
 
-enum CharactersDestination: Hashable {
-    case characterDetails(character: CharacterModel)
+enum CharactersDestination: Hashable {    
+    case characterDetails(_ character: CharacterModel)
 }
