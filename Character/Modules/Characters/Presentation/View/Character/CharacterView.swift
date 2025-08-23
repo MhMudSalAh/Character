@@ -23,16 +23,23 @@ struct CharacterView: View {
             .scaledToFill()
             .frame(height: 350, alignment: .top)
             .overlay(alignment: .bottom) {
-                HStack(spacing: 8) {
-                    Caption(text: viewModel.character.name)
-                    Caption(text: viewModel.character.species)
+                HStack(spacing: 5) {
+                    Caption(
+                        text: viewModel.character.name,
+                        textWeight: .bold
+                    )
+                    Caption(
+                        text: viewModel.character.species,
+                        textWeight: .medium
+                    )
                     Spacer()
                     Image(systemName: "chevron.right")
                         .font(.headline)
                         .foregroundColor(.white)
                 }
                 .padding(.trailing, 12)
-                .frame(maxWidth: .infinity, alignment: .center)
+                .padding(.leading, 8)
+                .padding(.vertical, 5)
                 .background(Color.black.opacity(0.3))
             }
             .overlay(alignment: .center) {
