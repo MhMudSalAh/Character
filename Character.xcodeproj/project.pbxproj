@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A7DBAD72E5A4E08006FE8F6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 7A7DBAD62E5A4E08006FE8F6 /* Kingfisher */; };
 		7ADA9EE22E57F0B0004992D5 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 7ADA9EE12E57F0B0004992D5 /* Networking */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A7DBAD72E5A4E08006FE8F6 /* Kingfisher in Frameworks */,
 				7ADA9EE22E57F0B0004992D5 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -156,6 +158,7 @@
 			name = Character;
 			packageProductDependencies = (
 				7ADA9EE12E57F0B0004992D5 /* Networking */,
+				7A7DBAD62E5A4E08006FE8F6 /* Kingfisher */,
 			);
 			productName = Character;
 			productReference = 7ADA9E552E57E08F004992D5 /* Character.app */;
@@ -239,6 +242,9 @@
 			);
 			mainGroup = 7ADA9E4C2E57E08F004992D5;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7A7DBAD52E5A4E08006FE8F6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7ADA9E562E57E08F004992D5 /* Products */;
 			projectDirPath = "";
@@ -631,7 +637,23 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7A7DBAD52E5A4E08006FE8F6 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
+		7A7DBAD62E5A4E08006FE8F6 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A7DBAD52E5A4E08006FE8F6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		7ADA9EE12E57F0B0004992D5 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
