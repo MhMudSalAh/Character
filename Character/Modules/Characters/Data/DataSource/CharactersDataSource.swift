@@ -8,9 +8,9 @@
 import Foundation
 
 final class CharactersDataSource {
-    func getCharacters() async throws -> [CharacterModel] {
-        try await Task.sleep(nanoseconds: 1_000_000_000)
-        return [
+    
+    var characters: [CharacterModel] {
+        [
             CharacterModel(
                 id:  1,
                 name: "Rick Sanchez",
@@ -24,7 +24,12 @@ final class CharactersDataSource {
                 species: "Human",
                 status: "Alive",
                 image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg"
-            ),
+            )
         ]
+    }
+    
+    func getCharacters() async throws -> [CharacterModel] {
+        try await Task.sleep(nanoseconds: 1_000_000_000)
+        return characters
     }
 }

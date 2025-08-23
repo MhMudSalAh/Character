@@ -11,7 +11,30 @@ struct CharactersView: View {
     @ObservedObject var viewModel: CharactersViewModel
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List(viewModel.filteredCharacters) { character in
+            CharacterView(viewModel: CharacterViewModel(character))
+                .listRowSeparator(.hidden)
+                .onTapGesture {
+                    viewModel.didSelectCharacter(character)
+                }
+        }
+        .listStyle(PlainListStyle())
+        .navigationTitle("Characters")
+        .searchable(
+            text: $viewModel.searchQuery,
+            prompt: "Search Characters by Name"
+        ) {
+            ForEach(viewModel.filteredCharacters) { character in
+                Text(character.name)
+                    .searchCompletion(character.name)
+            }
+        }
+        .onViewDidLoad {
+            viewModel.viewDidLoad()
+        }
+        .onChange(of: viewModel.searchQuery) { query in
+            viewModel.searchQuery = query
+        }
     }
 }
 

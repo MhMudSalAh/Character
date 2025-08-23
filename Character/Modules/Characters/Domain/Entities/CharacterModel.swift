@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CharacterModel: Hashable {
+struct CharacterModel: Identifiable, Hashable {
     let id: Int
     let name: String
     let species: String

@@ -5,13 +5,20 @@
 //  Created by MhMuD SalAh on 22/08/2025.
 //
 
-import Foundation
+import Combine
 
 final class CharactersViewModel: ObservableObject {
+    
+    // MARK: - Propreties
+    
     private let useCase: CharactersUseCase
     private let router: CharactersRouter
     
-    @Published var characters = [CharacterModel]()
+    @Published var characters: [CharacterModel] = []
+    @Published var filteredCharacters: [CharacterModel] = []
+    @Published var searchQuery: String = ""
+    
+    // MARK: - Init
     
     init(
         useCase: CharactersUseCase,
@@ -19,7 +26,13 @@ final class CharactersViewModel: ObservableObject {
     ) {
         self.useCase = useCase
         self.router = router
+    }
+    
+    // MARK: - Implementation
+    
+    func viewDidLoad() {
         getCharacters()
+        setupBindings()
     }
     
     private func getCharacters() {
@@ -34,6 +47,18 @@ final class CharactersViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    func setupBindings() {
+        $searchQuery
+            .combineLatest($characters)
+            .map { (searchQuery, characters) in
+                characters.filter {
+                    searchQuery.isEmpty ? true : $0.name
+                        .localizedCaseInsensitiveContains(searchQuery)
+                }
+            }
+            .assign(to: &$filteredCharacters)
     }
     
     func didSelectCharacter(_ character: CharacterModel) {
