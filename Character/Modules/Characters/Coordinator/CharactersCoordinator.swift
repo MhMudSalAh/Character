@@ -23,7 +23,10 @@ final class CharactersCoordinator: Router, CharactersRouter {
     func start(isPreview: Bool = false) -> some View {
         assemble(isPreview)
             .navigationDestination(for: Destination.self) { destination in
-                // TODO: - 
+                switch destination {
+                case .characterDetails(let character):
+                    CharacterDetailsCoordinator().assemble(character: character)
+                }
             }
     }
     
