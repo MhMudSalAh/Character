@@ -8,5 +8,5 @@
 import Networking
 
 protocol CharactersRepository {
-    func getCharacters() async -> Result<ResponseModel<[CharacterModel]>, APIError>
+    func getCharacters(pageURL: String?) async -> Result<ResponseModel<[CharacterModel]>, APIError>
 }

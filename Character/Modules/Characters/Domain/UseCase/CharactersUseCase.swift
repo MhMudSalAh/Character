@@ -15,11 +15,12 @@ public struct CharactersUseCase {
         self.repository = repository
     }
     
-    func getCharacters() async -> Result<[CharacterModel], APIError> {
-        let result = await repository.getCharacters()
+    func getCharacters(pageURL: String? = nil)
+    async -> Result<([CharacterModel], String?), APIError> {
+        let result = await repository.getCharacters(pageURL: pageURL)
         switch result {
         case .success(let response):
-            return .success(response.data)
+            return .success((response.data, response.page?.next))
         case .failure(let error):
             return .failure(error)
         }

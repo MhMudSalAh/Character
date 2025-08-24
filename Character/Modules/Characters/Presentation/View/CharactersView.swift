@@ -12,11 +12,7 @@ struct CharactersView: View {
     
     var body: some View {
         List(viewModel.filteredCharacters) { character in
-            CharacterView(viewModel: CharacterViewModel(character))
-                .listRowSeparator(.hidden)
-                .onTapGesture {
-                    viewModel.didSelectCharacter(character)
-                }
+            characterView(for: character)
         }
         .listStyle(PlainListStyle())
         .navigationTitle("Characters")
@@ -35,6 +31,17 @@ struct CharactersView: View {
         .onChange(of: viewModel.searchQuery) { query in
             viewModel.searchQuery = query
         }
+    }
+    
+    private func characterView(for character: CharacterModel) -> some View {
+        CharacterView(viewModel: CharacterViewModel(character))
+            .listRowSeparator(.hidden)
+            .onTapGesture {
+                viewModel.didSelectCharacter(character)
+            }
+            .onAppear {
+                viewModel.loadMore(currentItem: character)
+            }
     }
 }
 

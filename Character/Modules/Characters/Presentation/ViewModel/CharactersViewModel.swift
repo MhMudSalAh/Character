@@ -17,6 +17,7 @@ final class CharactersViewModel: ObservableObject {
     @Published var characters: [CharacterModel] = []
     @Published var filteredCharacters: [CharacterModel] = []
     @Published var searchQuery: String = ""
+    private var nextPageURL: String? = nil
     
     // MARK: - Init
     
@@ -35,20 +36,28 @@ final class CharactersViewModel: ObservableObject {
         setupBindings()
     }
     
+    func loadMore(currentItem: CharacterModel) {
+        guard let lastItem = characters.last else { return }
+        if currentItem.id == lastItem.id, nextPageURL != nil {
+            getCharacters()
+        }
+    }
+    
     private func getCharacters() {
         Task {
-            let result = await useCase.getCharacters()
+            let result = await useCase.getCharacters(pageURL: nextPageURL)
             await MainActor.run {
                 switch result {
-                case .success(let characters):
-                    self.characters = characters
+                case let .success((characters, nextPage)):
+                    self.characters.append(contentsOf: characters)
+                    self.nextPageURL = nextPage
                 case .failure(_):
                     break
                 }
             }
         }
     }
-    
+        
     func setupBindings() {
         $searchQuery
             .combineLatest($characters)

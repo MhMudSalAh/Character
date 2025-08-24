@@ -10,7 +10,7 @@ import Networking
 struct CharactersRepositoryMock: CharactersRepository {
     private let dataSource = CharactersDataSource()
     
-    func getCharacters() async -> Result<ResponseModel<[CharacterModel]>, APIError> {
+    func getCharacters(pageURL: String? = nil) async -> Result<ResponseModel<[CharacterModel]>, APIError> {
         do {
             let characters = try await dataSource.getCharacters()
             return .success(
