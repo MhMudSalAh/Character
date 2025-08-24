@@ -4,7 +4,7 @@
 <video src="https://github.com/user-attachments/assets/d18a842e-b289-4e6d-bb8d-abd32894698f" width=90% controls autoplay>
 
 ## High-level Design
-<img width="756" height="725" alt="Image" src="https://github.com/user-attachments/assets/3d58f0dc-1ab8-4193-b534-6ed661a6e70b" />
+<img src="https://github.com/user-attachments/assets/3d58f0dc-1ab8-4193-b534-6ed661a6e70b">
 
 ## Requirements:
 ### Functional:
