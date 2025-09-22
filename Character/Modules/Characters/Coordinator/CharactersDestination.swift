@@ -7,6 +7,13 @@
 
 import Foundation
 
-enum CharactersDestination: Hashable {    
+enum CharactersDestination: Identifiable, Hashable {
     case characterDetails(_ character: CharacterModel)
+    
+    var id: Int {
+        switch self {
+        case .characterDetails(let character):
+            return character.id
+        }
+    }
 }
