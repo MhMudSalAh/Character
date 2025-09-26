@@ -60,10 +60,8 @@ final class CharactersCoordinator: Router, ObservableObject {
         let repository = CharactersRepositoryAPI(provider: provider)
         let mockRepository = CharactersRepositoryMock()
         let useCase = CharactersUseCase(repository: isPreview ? mockRepository : repository)
-        
-        return CharactersView {
-            CharactersViewModel(useCase: useCase, router: self)
-        }
+        let viewModel = CharactersViewModel(useCase: useCase, router: self)
+        return CharactersView(viewModel: viewModel)
     }
     
     // MARK: - Full Screen

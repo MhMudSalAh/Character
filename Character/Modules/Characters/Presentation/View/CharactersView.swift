@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CharactersView: View {
-    @ObservedObject var viewModel: CharactersViewModel
     
+    @StateObject private var viewModel: CharactersViewModel
+    
+    init(viewModel: CharactersViewModel) {
+        _viewModel = StateObject(wrappedValue: viewModel)
+    }
+
     var body: some View {
         List(viewModel.filteredCharacters) { character in
             characterView(for: character)
