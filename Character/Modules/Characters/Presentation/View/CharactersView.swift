@@ -31,7 +31,7 @@ struct CharactersView: View {
             }
         }
         .onViewDidLoad {
-            viewModel.viewDidLoad()
+            await viewModel.viewDidLoad()
         }
         .onChange(of: viewModel.searchQuery) { query in
             viewModel.searchQuery = query
@@ -44,8 +44,8 @@ struct CharactersView: View {
             .onTapGesture {
                 viewModel.didSelectCharacter(character)
             }
-            .onAppear {
-                viewModel.loadMore(currentItem: character)
+            .task {
+                await viewModel.loadMore(currentItem: character)
             }
     }
 }

@@ -29,7 +29,6 @@ final class CharactersDataSource {
     }
     
     func getCharacters() async throws -> [CharacterModel] {
-        try await Task.sleep(nanoseconds: 1_000_000_000)
         return characters
     }
 }

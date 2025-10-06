@@ -9,12 +9,12 @@ import XCTest
 import SwiftUI
 @testable import Character
 
-@MainActor
 final class CharactersViewModelTests: XCTestCase {
 
     private let charactersUseCase = CharactersUseCase(repository: CharactersRepositoryMock())
     private var sut: CharactersViewModel!
     
+    @MainActor
     override func setUp() {
         self.sut = CharactersViewModel(
             useCase: charactersUseCase,
@@ -31,20 +31,17 @@ final class CharactersViewModelTests: XCTestCase {
     }
     
     func test_returns_correct_fetched_characters_count() async {
-        sut.viewDidLoad()
-        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        await sut.viewDidLoad()
         XCTAssertEqual(sut.filteredCharacters.count, 2)
     }
     
     func test_returns_correct_fetched_characters_mapping() async {
-        sut.viewDidLoad()
-        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        await sut.viewDidLoad()
         XCTAssertEqual(sut.filteredCharacters.first?.name, "Rick Sanchez")
     }
     
     func test_returns_correct_filtered_characters() async {
-        sut.viewDidLoad()
-        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        await sut.viewDidLoad()
         
         sut.searchQuery = "Ri"
         XCTAssertEqual(sut.filteredCharacters.first?.name, "Rick Sanchez")
@@ -54,8 +51,7 @@ final class CharactersViewModelTests: XCTestCase {
     }
     
     func test_returns_correct_unfiltered_characters_after_reset() async {
-        sut.viewDidLoad()
-        try? await Task.sleep(nanoseconds: 1_500_000_000)
+        await sut.viewDidLoad()
         
         sut.searchQuery = "Ri"
         XCTAssertEqual(sut.filteredCharacters.count, 1)

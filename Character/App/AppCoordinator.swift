@@ -15,7 +15,7 @@ final class AppCoordinator: ObservableObject, Coordinator {
     func start(isPreview: Bool = false) -> some View {
         let coordinator = CharactersCoordinator(path: self.pathBinding)
         return NavigationStack(path: pathBinding) {
-            RootView(coordinator: coordinator)
+            coordinator.start()
          }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Combine
+import Foundation
 
 final class CharactersViewModel: ObservableObject {
     
@@ -27,44 +28,40 @@ final class CharactersViewModel: ObservableObject {
     ) {
         self.useCase = useCase
         self.router = router
+        setupBindings()
     }
     
     // MARK: - Implementation
     
-    func viewDidLoad() {
-        getCharacters()
-        setupBindings()
+    func viewDidLoad() async {
+        await getCharacters()
     }
     
-    func loadMore(currentItem: CharacterModel) {
+    func loadMore(currentItem: CharacterModel) async {
         guard let lastItem = characters.last else { return }
-        if currentItem.id == lastItem.id, nextPageURL != nil {
-            getCharacters()
+        guard currentItem.id == lastItem.id, nextPageURL != nil else { return }
+        await getCharacters()
+    }
+    
+    @MainActor
+    private func getCharacters() async {
+        let result = await useCase.getCharacters(pageURL: nextPageURL)
+        switch result {
+        case let .success((characters, nextPage)):
+            self.characters.append(contentsOf: characters)
+            self.nextPageURL = nextPage
+        case .failure(_):
+            break
         }
     }
     
-    private func getCharacters() {
-        Task {
-            let result = await useCase.getCharacters(pageURL: nextPageURL)
-            await MainActor.run {
-                switch result {
-                case let .success((characters, nextPage)):
-                    self.characters.append(contentsOf: characters)
-                    self.nextPageURL = nextPage
-                case .failure(_):
-                    break
-                }
-            }
-        }
-    }
-        
     func setupBindings() {
         $searchQuery
             .combineLatest($characters)
             .map { (searchQuery, characters) in
                 characters.filter {
-                    searchQuery.isEmpty ? true : $0.name
-                        .localizedCaseInsensitiveContains(searchQuery)
+                    searchQuery.isEmpty ? true :
+                    $0.name.localizedCaseInsensitiveContains(searchQuery)
                 }
             }
             .assign(to: &$filteredCharacters)

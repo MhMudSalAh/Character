@@ -14,7 +14,6 @@ struct CharacterApp: App {
     var body: some Scene {
         WindowGroup {
             coordinator.start()
-                .environmentObject(coordinator)
         }
     }
 }
