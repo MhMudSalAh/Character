@@ -20,13 +20,11 @@ final class CharactersCoordinator: Router, ObservableObject {
     @Published var fullScreen: CharactersDestination? = nil
     
     init(path: Binding<NavigationPath>) {
-        self._path = path
+        _path = path
     }
     
     @ViewBuilder
     func start(isPreview: Bool = false) -> some View {
-        let coordinator = self
-        
         assemble(isPreview)
         // MARK: - Navigate
             .navigationDestination(for: Destination.self) { destination in
@@ -44,8 +42,8 @@ final class CharactersCoordinator: Router, ObservableObject {
             }
         // MARK: - Sheet Screen
             .sheet(item: Binding(
-                get: { coordinator.sheet },
-                set: { coordinator.sheet = $0 }
+                get: { self.sheet },
+                set: { self.sheet = $0 }
             )) { sheetDestination in
                 switch sheetDestination {
                 case .characterDetails(let character):
@@ -90,7 +88,7 @@ final class CharactersCoordinator: Router, ObservableObject {
 extension CharactersCoordinator: CharactersRouter {
     func navigateToCharacterDetails(character: CharacterModel) {
         push(.characterDetails(character))
-        //        presentSheet(.characterDetails(character))
-        //        presentFullScreen(.characterDetails(character))
+//        presentSheet(.characterDetails(character))
+//        presentFullScreen(.characterDetails(character))
     }
 }

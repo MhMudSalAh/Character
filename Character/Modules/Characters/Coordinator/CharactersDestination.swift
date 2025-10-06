@@ -10,5 +10,5 @@ import Foundation
 enum CharactersDestination: Identifiable, Hashable {
     case characterDetails(_ character: CharacterModel)
     
-    var id: String { String(describing: self) }
+    var id: Self { self }
 }

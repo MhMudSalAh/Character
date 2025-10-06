@@ -7,19 +7,19 @@
 
 import SwiftUI
 
-
-final class AppCoordinator: ObservableObject, Coordinator {    
+final class AppCoordinator: ObservableObject, Coordinator {
     @Published var path = NavigationPath()
     @Published var destinations: [AppDestination] = []
     
     func start(isPreview: Bool = false) -> some View {
         let coordinator = CharactersCoordinator(path: self.pathBinding)
         return NavigationStack(path: pathBinding) {
-            coordinator.start()
-         }
+            RootView(coordinator: coordinator)
+        }
     }
 }
 
-enum AppDestination: Hashable {
+enum AppDestination: Hashable, Identifiable {
     case characters
+    var id: Self { self }
 }
